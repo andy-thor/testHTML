@@ -28,11 +28,11 @@ objXMLHttpRequest.onreadystatechange = function() {
 	}
 }
 var el = document.querySelector('#AASSSD');
-$("#AASSSD").val("CONTENT");
 alert("El: " + el);
 
 var el2 = document.getElementById("AASSSD");
-alert("El2: " + el2);
+alert("El2: ->" + el2);
 
+$("#AASSSD").html("CONTENT");
 objXMLHttpRequest.open('GET', '../resources/data.json');
 objXMLHttpRequest.send();
