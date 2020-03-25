@@ -78,7 +78,7 @@ function configureEffects() {
 function init() {
 	configureEffects();
 	generateTextCopyright();
-	generateButtonDownload();
+	// generateButtonDownload();
 }
 
 function getOS() {
