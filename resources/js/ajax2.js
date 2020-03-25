@@ -15,25 +15,26 @@ function modDownloadSection() {
 	}
 }
 */
-
-var objXMLHttpRequest = new XMLHttpRequest();
-objXMLHttpRequest.onreadystatechange = function() {
-	if(objXMLHttpRequest.readyState === 4) {
-		if(objXMLHttpRequest.status === 200) {
-			  alert(objXMLHttpRequest.responseText);
-		} else {
-			  alert('Error Code: ' + objXMLHttpRequest.status);
-			  alert('Error Message: ' + objXMLHttpRequest.statusText);
+function startAjax() {
+	var objXMLHttpRequest = new XMLHttpRequest();
+	objXMLHttpRequest.onreadystatechange = function() {
+		if(objXMLHttpRequest.readyState === 4) {
+			if(objXMLHttpRequest.status === 200) {
+				alert(objXMLHttpRequest.responseText);
+			} else {
+				alert('Error Code: ' + objXMLHttpRequest.status);
+				// alert('Error Message: ' + objXMLHttpRequest.statusText);
+			}
 		}
 	}
+	var el = document.querySelector('#AASSSD');
+	alert("El: " + el);
+
+	var el2 = document.getElementById("AASSSD");
+	alert("El2: ->" + el2);
+	$("#AASSSD").val("NUEVO VALOR");
+	alert("ALERT3-> " + $("#AASSSD").val())
+
+	objXMLHttpRequest.open('GET', '../resources/data.json');
+	objXMLHttpRequest.send();
 }
-var el = document.querySelector('#AASSSD');
-alert("El: " + el);
-
-var el2 = document.getElementById("AASSSD");
-alert("El2: ->" + el2);
-$("#AASSSD").val("NUEVO VALOR");
-alert("ALERT3-> " + $("#AASSSD").val())
-
-objXMLHttpRequest.open('GET', '../resources/data.json');
-objXMLHttpRequest.send();
