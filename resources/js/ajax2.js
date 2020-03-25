@@ -1,6 +1,6 @@
 //alert("DENTRO DE FILE AJAX2.JS");
-document.querySelector('#AASSSD').addEventListener('load', modDownloadSection);
 
+/*
 alert("ALERT");
 function modDownloadSection() {
 	alert("ADENTROO");
@@ -14,3 +14,24 @@ function modDownloadSection() {
 		}
 	}
 }
+*/
+
+var objXMLHttpRequest = new XMLHttpRequest();
+objXMLHttpRequest.onreadystatechange = function() {
+	if(objXMLHttpRequest.readyState === 4) {
+		if(objXMLHttpRequest.status === 200) {
+			  alert(objXMLHttpRequest.responseText);
+		} else {
+			  alert('Error Code: ' + objXMLHttpRequest.status);
+			  alert('Error Message: ' + objXMLHttpRequest.statusText);
+		}
+	}
+}
+var el = document.querySelector('#AASSSD');
+alert(el);
+
+var el2 = document.getElementById("AASSSD");
+
+
+objXMLHttpRequest.open('GET', '../resources/data.json');
+objXMLHttpRequest.send();
