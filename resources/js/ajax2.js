@@ -28,10 +28,10 @@ objXMLHttpRequest.onreadystatechange = function() {
 	}
 }
 var el = document.querySelector('#AASSSD');
-alert(el);
+alert("El: " + el);
 
 var el2 = document.getElementById("AASSSD");
-alert(el2);
+alert("El2: " + el2);
 
 objXMLHttpRequest.open('GET', '../resources/data.json');
 objXMLHttpRequest.send();
