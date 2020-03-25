@@ -1,7 +1,7 @@
 //alert("DENTRO DE FILE AJAX2.JS");
-document.querySelector('#AASSSD').addEventListener('click', modDownloadSection);
+document.querySelector('#AASSSD').addEventListener('load', modDownloadSection);
 
-
+alert("ALERT");
 function modDownloadSection() {
 	alert("ADENTROO");
 	const xhttp = new XMLHttpRequest();
