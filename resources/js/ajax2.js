@@ -32,7 +32,7 @@ alert("El: " + el);
 
 var el2 = document.getElementById("AASSSD");
 alert("El2: ->" + el2);
+alert("ALERT3-> " + $("#AASSSD").val())
 
-$("#AASSSD").html("CONTENT");
 objXMLHttpRequest.open('GET', '../resources/data.json');
 objXMLHttpRequest.send();
