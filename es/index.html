@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8">
+	<title>StickMan</title>
+	<link rel="shortcut icon" href="../resources/icon/favicon.ico">
+	<link rel="stylesheet" href="../resources/css/style.css">
+	<link rel="stylesheet" href="../resources/css/slideshow.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oxygen">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../resources/js/slideshow.js"></script>
+	<script src="../resources/js/functions.js"></script>
+</head>
+<body onload = init()>
+	<header>
+		<nav id="global-nav">
+			<ul class="top-menu">
+				<li><a href="#">Lenguaje &#9660;</a>
+					<ul class="submenu-lang">
+						<li><a href="../en/index.html">Inglés</a></li>
+						<li><a href="../es/index.html">Español</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div class="slideshow-container">
+		<div class="text">
+			<h1>StickMan</h1>
+			<div class="low-description">¡Una caricatura corriendo por tu escritorio!</div>
+		</div>
+		<div id="support">
+			<p class="text-support">Tu donación ayuda en el desarrollo y mantenimiento de este proyecto. ¡Gracias!</p>
+			<hr>
+			<a href="https://www.paypal.com/donate/?token=t_a88tG7iaFxTBb5aNKmQguOCPzsmLEnBW9JQk6jouZvnrw_fUJrm7Ue5MP4l9C3BcDOp0&country.x=ES&locale.x=ES" target="_blank">Ayuda al proyecto</a>
+		</div>
+
+		<div class="mySlides fade">
+			<div class="numbertext">1 / 4</div>
+			<img src="../resources/images/half-screenshot1.png" style="width:100%">
+		</div>
+		<div class="mySlides fade">
+			<div class="numbertext">2 / 4</div>
+			<img src="../resources/images/half-screenshot2.png" style="width:100%">
+		</div>
+		<div class="mySlides fade">
+			<div class="numbertext">3 / 4</div>
+			<img src="../resources/images/half-screenshot3.png" style="width:100%">
+		</div>
+		<div class="mySlides fade">
+			<div class="numbertext">4 / 4</div>
+			<img src="../resources/images/half-screenshot4.png" style="width:100%">
+		</div>
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+		<div style="text-align:center">
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+			<span class="dot" onclick="currentSlide(4)"></span>
+		</div>
+	</div>
+	<div id="container">
+		<nav id="main-nav">
+			<ul class="menu">
+				<li><a href="index.html">Inicio</a></li>
+				<li><a href="download.html">Descarga</a></li>
+				<li><a href="screenshots.html">Capturas</a></li>
+				<li><a href="about.html">Acerca</a></li>
+			</ul>
+		</nav>
+		<div id="content-wrapper">
+			<div class="content-info">
+				<iframe class="yt-video" width="420" height="280" src="https://www.youtube.com/embed/mNPAg-hmJgg?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<div class="desc-app">
+					<h2>¿Qué es StickMan?</h2>
+					<hr>
+					<p>StickMan es un software libre y gratuito que muestra a una caricatura corriendo en tu escritorio.<br><br>
+						Este software está desarrollado en Python y GTK y puede ejecutarse tanto en Windows, Linux o macOS.
+					</p>
+				</div>
+				<section class="section-download download-home">
+					<a class="button-download" href=""> </a>
+					<div class="specifications ">
+						<p class="title-spec">Especificaciones</p>
+						<div class="body-spec">
+							<p id="file-name"><span class="bold-text"> </span> </p>
+							<p id="file-size"><span class="bold-text size-bytes"> </span> </p>
+							<p id="platform"><span class="bold-text"> </span>  </p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div id="content-report">
+			<div class="github-report">
+				<a href="https://github.com/Andy-thor/StickMan/issues"><span class="icon github-icon"></span>Reportar problemas</a>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p id="owner"></p>
+	</footer>
+</body>
+</html>

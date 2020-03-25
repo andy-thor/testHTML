@@ -1,0 +1,425 @@
+* {
+	font-family: "Liberation serif";
+	text-decoration: none;
+	box-sizing: border-box;
+	color: #FFF;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background-image: url("../images/background.jpg");
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+}
+
+hr {
+	color: gray;
+	text-align: center;
+	background-color: gray;
+	width: 100%;
+	height: 1px; 
+	border: 0;
+}
+
+h1, h2 {
+	font-family: 'PT Serif', serif;
+}
+
+header {
+	background-image: linear-gradient(#000000, #070707);
+	width: 100%;
+	height: 20px;
+	position: fixed;
+	margin: -40px 0px 50px 0px;
+	padding: 0;
+	border-bottom: 1px solid #7ACEF4;
+	z-index: 3;
+}
+
+header #global-nav {
+	margin: 0 auto;
+	display: block;
+}
+
+.url {
+	color: #4FA835;
+}
+
+#global-nav ul {
+	float: left;
+	list-style: none;
+}
+
+#global-nav ul.top-menu {
+	background: #000;
+	float: right;
+}
+
+#global-nav ul.top-menu > li {	
+	text-align: center;
+	border-radius: 4px;
+}
+
+#global-nav .top-menu li {
+	color: #353535;
+	font-size: 12px;
+	padding: 0px;
+	display: block;
+}
+
+.top-menu > li:hover ul {
+	visibility: visible;
+	display: block;
+}
+
+.top-menu li ul {
+	display: none;
+	text-align: left;
+	visibility: hidden;
+}
+
+.top-menu li > ul.submenu-lang {
+	margin: 0;
+	position: absolute;
+	display: block;
+	z-index: 2;
+	width: 100px;
+	background: black;
+	transition: all 0.3s;
+}
+
+.top-menu li > ul.submenu-lang li {
+	text-align: left;
+	margin-left: 10px;
+}
+
+.top-menu li > ul.submenu-lang > li:hover {
+	background: gray;
+	transition: all 0.3s;
+}
+
+#container {
+	border: 1px solid #7ACEF4;
+}
+
+#container {
+	background: #484848;
+	font-size: 14px;
+	width: 1200px;
+	max-width: 96%;
+	min-width: 780px;
+	position: relative;
+	border-radius: 15px;
+	top: -25px;
+	margin-top: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
+}
+
+#container > nav#main-nav {
+	background-image: linear-gradient(to right, #1C466F, #06568E);
+	width: 100%;
+	height: 40px;
+	position: relative;
+	border-radius: 15px 15px 0px 0px;
+	margin: 0 auto;
+	padding: 0;
+	border: 1px ridge #5286E2;
+}
+
+nav#main-nav > ul.menu {
+	display: inline-block;
+	float: left;
+	list-style: none;
+}
+
+nav#main-nav > ul.menu > li {
+	margin: 0 auto;
+	text-align: left;	
+	vertical-align: bottom;
+	display: inline-block;
+	
+}
+
+nav#main-nav > ul.menu li a {
+	color: #FFF;
+	text-align: left;
+	padding: 12px;
+	display: block;
+}
+
+nav#main-nav > ul.menu li > a:hover {
+	background-image: linear-gradient(to top right, #7F7F7F, #BFBFBF);
+	border-radius: 5px;
+}
+
+#container > div#content-wrapper {
+	background-color: #FFF;
+	width: 100%;
+	height: 400px;
+	position: relative;
+	margin: 0 auto;
+	padding: 0;
+}
+
+#content-wrapper > div.content-info {
+	background: url(../images/dark-metal-grid.jpg);
+	width: 100%;
+	height: 100%;
+	position: relative;
+	display: block;
+}
+
+.title-text {
+	color: white;
+	font-family: 'Merryweather', serif;
+	font-size: 22px;
+	border-radius: 6px;
+	margin-top: 5px;
+	display: inline;
+	position: absolute;
+	z-index: 2;
+}
+
+.title-text.left {
+	float: left;
+	left: 15%;
+}
+
+.title-text.right {
+	left: 58%;
+}
+
+div.content-info iframe.yt-video {
+	position: relative;
+	float: left;
+	margin-top: 40px;
+	margin-left: -275px;
+}
+
+div.content-info div.desc-app {
+	position: relative;
+	float: right;
+	margin-top: 20px;
+	padding-right: 80px;
+	text-align: left;
+}
+
+div.content-info div.desc-app > h2 {
+	text-align: center;
+	padding: 20px auto;
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+div.content-info div.desc-app > p {
+	font-family: 'PT Serif', serif;
+	width: 300px;
+	margin-top: 20px;
+	text-align: left;
+}
+
+div.content-info section.section-download {
+	position: absolute;
+	width: 400px;
+	height: 150px;
+}
+
+div.content-info section.section-download.download-home {
+	float: right;
+	bottom: 30px;
+	right: 30px;
+}
+
+div.content-info section.section-download.download-page {
+	float: left;
+	top: 25px;
+	left: 30px;
+}
+
+section.section-download > a {
+	color: #FFF;
+	background-image: linear-gradient(to top, #F07E22, #F09422);
+	font-weight: bold;
+	font-family: 'Merryweather', serif;
+	font-size: 18px;
+	border: 2px solid #737062;
+	border-radius: 5px;
+	box-shadow: 2px 5px 5px #7F7F7F;
+	position: relative;
+	text-align: center;
+	width: 50%;
+	height: 70px;
+	float: left;
+	margin-top: 20px;
+	padding: 12px;
+	top: 20px;
+}
+
+div.content-info section.section-download.download-page > a {
+	padding-top: 20px;
+}
+
+div.content-info > section.section-download > div.specifications {
+	color: white;
+	opacity: 0.70;
+	width: 190px;
+	height: 100%;
+	position: relative;
+	float: right;
+	padding-top: 35px;
+	padding-left: 10px;
+	right: -10px;
+}
+
+div.content-info section.section-download div.specifications p.title-spec {
+	color: #FFF;
+	font-family: 'Oxygen', sans-serif;
+	font-weight: bold;
+	font-size: 15px;
+	position: relative;
+}
+
+section.section-download div.specifications > div.body-spec {
+	color: #000;
+	font-size: 13px;
+	position: relative;
+	padding-top: 5px;
+}
+
+.bold-text {
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.collapsible {
+	background: url("../images/lines.jpg");
+	font-family: 'Oxygen', sans-serif;
+	font-weight: bold;
+	cursor: pointer;
+	text-align: left;
+	font-size: 15px;
+	padding: 10px;
+	width: 100%;
+	border: none;
+	border-radius: 3px;
+	outline: none;
+}
+
+.collapsible:after {
+	content: '\002B';
+	color: white;
+	font-weight: bold;
+	float: right;
+	margin-left: 5px;
+}
+
+.collapsible.active:after {
+	content: "\2212";
+}
+
+.content-collapsible {
+	padding: 0 18px;
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease-out;
+	background-color: #4FA835;
+	font-weight: bold;
+}
+
+#items-collapside {
+	padding-left: 10px;
+}
+
+.section-git {
+	position: relative;
+	background: #E5E5E5;
+	width: 40%;
+	margin-top: 60px;
+	border: 2px solid #BFBFBF;
+	border-radius: 4px;
+	float: right;
+	right: 35px;
+	opacity: 0.67;
+}
+
+.section-git p {
+	color: black;
+	font-family: 'Verdana', serif;
+	font-size: 16px;
+}
+
+.section-git .content-git {
+	padding: 15px;
+}
+
+.section-git .content-git .code-box {
+	color: white;
+	font-family: 'Oxygen', sans-serif;
+	font-size: 13px;
+	background: black;
+	width: 100%;
+	height: 20px;
+	margin-bottom: 10px;
+}
+
+#content-about {
+	text-align: center;
+	width: 90%;
+	padding-top: 75px;
+	margin-left: auto;
+	margin-right: auto;
+	opacity: 0.65;
+}
+
+#content-about > .desc p {
+	font-family: 'Times New Roman', serif;
+	font-size: 15px;
+}
+
+#container #content-report {
+	background-color: white;
+	text-align: center;
+	height: 40px;
+}
+
+#container #content-report .icon {
+	display: inline-block;
+	width: 32px;
+	height: 32px;
+	vertical-align: middle;
+}
+
+.github-icon {
+	background-image: url("../icon/github.png");
+	width: 100%;
+	height: 100%;
+}
+
+#container #content-report .github-report {
+	position: relative;
+	height: 35px;
+	top: 5px;
+}
+
+#container #content-report .github-report a {
+	color: #137DCA;
+	font-family: 'Oxygen', sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+}
+
+footer {
+	color: #727272;
+	background-color: #1C1C1C;
+	font-family: 'PT Serif', serif;
+	text-align: center;
+	width: 100%;
+	height: 100px;
+	max-height: 100%;
+	position: absolute;
+	padding-top: 40px;
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>StickMan</title>
+	<link rel="shortcut icon" href="../resources/icon/favicon.ico">
+	<link rel="stylesheet" href="../resources/css/style.css">
+	<link rel="stylesheet" href="../resources/css/slideshow.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif">
+	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="../resources/js/slideshow.js"></script>
+	<script src="../resources/js/functions.js"></script>
+	<script src="../resources/js/ajax2.js"></script>
+</head>
+<body onload = init()>
+	<header>
+		<nav id="global-nav">
+			<ul class="top-menu">
+				<li><a href="#">Language &#9660;</a>
+					<ul class="submenu-lang">
+						<li><a href="../en/index.html">English</a></li>
+						<li><a href="../es/index.html">Spanish</a></li>
+					</ul>
+				</li>
+			</ul>
+		</nav>
+	</header>
+	<div class="slideshow-container">
+		<div class="text">
+			<h1>StickMan</h1>
+			<div class="low-description">A toon running on your desktop!</div>
+		</div>
+		<div id="support">
+			<p class="text-support">Your donation helps in the development and maintenance of this project.	Thanks you!</p>
+			<hr>
+			<a href="https://www.paypal.com/donate/?token=_ewdmZ5WxUBxW6UlZAQHuFcFv0Im6_ym1aNLy4f2Ujuc8DzPtDJPFrsvYyN1WzKnAirGJW&country.x=US&locale.x=US" target="_blank">Support the project</a>
+		</div>
+
+		<div class="mySlides fade">
+			<div class="numbertext">1 / 4</div>
+			<img src="../resources/images/half-screenshot1.png" style="width:100%">
+		</div>
+		<div class="mySlides fade">
+			<div class="numbertext">2 / 4</div>
+			<img src="../resources/images/half-screenshot2.png" style="width:100%">
+		</div>
+		<div class="mySlides fade">
+			<div class="numbertext">3 / 4</div>
+			<img src="../resources/images/half-screenshot3.png" style="width:100%">
+		</div>
+		<div class="mySlides fade">
+			<div class="numbertext">4 / 4</div>
+			<img src="../resources/images/half-screenshot4.png" style="width:100%">
+		</div>
+		<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+		<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+		<div style="text-align:center">
+			<span class="dot" onclick="currentSlide(1)"></span>
+			<span class="dot" onclick="currentSlide(2)"></span>
+			<span class="dot" onclick="currentSlide(3)"></span>
+			<span class="dot" onclick="currentSlide(4)"></span>
+		</div>
+	</div>
+	<div id="container">
+		<nav id="main-nav">
+			<ul class="menu">
+				<li><a href="index.html">Home</a></li>
+				<li><a href="download.html">Download</a></li>
+				<li><a href="screenshots.html">Screenshots</a></li>
+				<li><a href="about.html">About</a></li>
+			</ul>
+		</nav>
+		<div id="content-wrapper">
+			<div class="content-info">
+				<iframe class="yt-video" width="420" height="280" src="https://www.youtube.com/embed/mNPAg-hmJgg?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				<div class="desc-app">
+					<h2>What is StickMan?</h2>
+					<hr>
+					<p>StickMan is a free and open source software that shows a toon running on your desktop.<br><br>
+						This software is developed in Python and GTK and can be used in Windows, Linux or Mac.
+					</p>
+				</div>
+				<button id="AASSSD" type="submit">asdDSSD</button>
+
+				<section class="section-download download-home">
+					<a id="btn-download" class="button-download" href=""> </a>
+					<div class="specifications ">
+						<p class="title-spec">Specifications</p>
+						<div class="body-spec">
+							<p id="file-name"><span class="bold-text"> </span> </p>
+							<p id="file-size"><span class="bold-text size-bytes"> </span> </p>
+							<p id="platform"><span class="bold-text"> </span>  </p>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div id="content-report">
+			<div class="github-report">
+				<a href="https://github.com/Andy-thor/StickMan/issues"><span class="icon github-icon"></span>Report issues</a>
+			</div>
+		</div>
+	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', function(){ alert("ALERTA MAXIMA") });
+    </script>
+	<script>
+		var objXMLHttpRequest = new XMLHttpRequest();
+		objXMLHttpRequest.onreadystatechange = function() {
+		  if(objXMLHttpRequest.readyState === 4) {
+			if(objXMLHttpRequest.status === 200) {
+				  alert(objXMLHttpRequest.responseText);
+			} else {
+				  alert('Error Code: ' +  objXMLHttpRequest.status);
+				  alert('Error Message: ' + objXMLHttpRequest.statusText);
+			}
+		  }
+		}
+		objXMLHttpRequest.open('GET', '../resources/data.json');
+		objXMLHttpRequest.send();
+	</script>
+	<!--#include virtual="footer.htm"-->
+</body>
+</html>
