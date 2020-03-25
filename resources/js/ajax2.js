@@ -34,6 +34,7 @@ function startAjax() {
 	alert("El2: ->" + el2);
 	$("#AASSSD").val("NUEVO VALOR");
 	alert("ALERT3-> " + $("#AASSSD").val())
+	$("a.button-download").attr("href", "https://github.com");
 
 	objXMLHttpRequest.open('GET', '../resources/data.json');
 	objXMLHttpRequest.send();
