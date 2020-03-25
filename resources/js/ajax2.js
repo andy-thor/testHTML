@@ -31,7 +31,7 @@ var el = document.querySelector('#AASSSD');
 alert(el);
 
 var el2 = document.getElementById("AASSSD");
-
+alert(el2);
 
 objXMLHttpRequest.open('GET', '../resources/data.json');
 objXMLHttpRequest.send();
