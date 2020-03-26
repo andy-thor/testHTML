@@ -42,6 +42,7 @@ function startAjax() {
 					urlDownload = data["latest-release"]["exe"]["url"].format(developer, repo, version, filename);
 				} else {
 					filename = data["latest-release"]["zipball"]["filename"].format(repo, version);
+					alert("FILENAME: " + filename);
 					filesize = data["latest-release"]["zipball"]["filesize"];
 					urlDownload = data["latest-release"]["zipball"]["url"].format(developer, repo, version);
 				}
