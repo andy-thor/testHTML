@@ -60,9 +60,9 @@ function startAjax() {
 								  .replace("{version}", version);
 				}
 				
-				var textDownload = data["text"]["labels-spec"]["download"];
+				var textDownload = data["text"]["labels-spec"]["download"][idLang];
 				alert("TEXTDOWNLOAD " + textDownload);
-				textDownload = String(textDownload).replace("{project-name}", repo).replace("{version}", version);
+				textDownload = textDownload.replace("{project-name}", repo).replace("{version}", version);
 				var test1 = data["text"]["labels-spec"]["filename"][idLang];
 				var test2 = data["text"]["labels-spec"]["filesize"][idLang];
 
