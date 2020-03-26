@@ -20,7 +20,9 @@ function startAjax() {
 	objXMLHttpRequest.onreadystatechange = function() {
 
 		if(objXMLHttpRequest.readyState === 4) {
+			alert("objXMLHttpRequest.readyState ===  4");
 			if(objXMLHttpRequest.status === 200) {
+				alert("and objXMLHttpRequest.status === 200");
 				var data = JSON.parse(this.responseText);
 				var repo = data["project-name"],
 					developer = data["developer"],
