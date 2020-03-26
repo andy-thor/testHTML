@@ -36,7 +36,7 @@ function loadSpecDownload() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", "../resources/data.json", true);
 	xhr.onreadystatechange = function(){
-		var data = JSON.parse(this.responseText);
+		var data = JSON.parse(xhr.responseText);
 		if (data) {
 			var repo = data["project-name"],
 				developer = data["developer"],
