@@ -19,6 +19,10 @@ function generateTextCopyright() {
 	$("#owner").html("Copyright &copy; " + strTimeLapse + "<br>" + developerFullName);
 }
 
+function specDownloadSection(argument) {
+	// body...
+}
+
 function generateButtonDownload() {
 	var currentOS = getOS();
 	var objDownSpec = new Object();
