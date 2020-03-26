@@ -35,7 +35,7 @@ function startAjax() {
 				var filesize = "";
 				var urlDownload = "";
 				alert("BEFORE LANG-OS -> " + currentOS);
-				alert(data);
+				alert(JSON.stringify(data));
 				if (lang === "es") {
 					idLang = 1;
 				}
