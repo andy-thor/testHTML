@@ -60,7 +60,7 @@ function startAjax() {
 								  .replace("{version}", version);
 				}
 				
-				let textDownload = data["text"]["labels-spec"]["download"];
+				var textDownload = data["text"]["labels-spec"]["download"];
 				alert("TEXTDOWNLOAD " + textDownload);
 				textDownload = textDownload.replace("{project-name}", repo)
 							   .replace("{version}", version);
