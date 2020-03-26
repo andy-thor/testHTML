@@ -15,6 +15,8 @@ function modDownloadSection() {
 	}
 }
 */
+document.addEventListener('DOMContentLoaded', startAjax());
+
 function startAjax() {
 	var objXMLHttpRequest = new XMLHttpRequest();
 	objXMLHttpRequest.onreadystatechange = function() {
@@ -66,10 +68,13 @@ function startAjax() {
 				let textDownload = data["text"]["labels-spec"]["download"]
 								   .replace("{project-name}", repo)
 								   .replace("{version}", version);
+				let test1 = data["text"]["labels-spec"]["filename"][idLang];
+				let test2 = data["text"]["labels-spec"]["filesize"][idLang];
+
 				alert(textDownload + "\n" +
 					  urlDownload + "\n" +
-					  data["text"]["labels-spec"]["filename"][idLang] + "\n" +
-					  data["text"]["labels-spec"]["filesize"][idLang] + "\n" +
+					  data2 + "\n" +
+					  test1 + "\n" +
 					 );
 				$("a.button-download").attr("href", urlDownload);
 				$("a.button-download").html(textDownload);
