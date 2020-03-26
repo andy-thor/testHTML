@@ -34,8 +34,16 @@ function loadJSON(path) {
 
 function loadSpecDownload() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "../data.json", true);
+	xhr.open("GET", "../data.json");
 	xhr.onreadystatechange = function(){
+		if(xhr.readyState === 4) {
+			if(xhr.status === 200) {
+				return JSON.parse(this.responseText);
+			} else {
+				console.log('Error Code: ' + xhr.status);
+				return null;
+			}
+		}
 		var data = JSON.parse(xhr.responseText);
 		alert("DATA: "+ JSON.stringify(data));
 		if (data) {
