@@ -34,25 +34,25 @@ function startAjax() {
 				var filename = "";
 				var filesize = "";
 				var urlDownload = "";
-				filename = data["latest-release"]["zipball"]["filename"].format(repo, version);
-				alert("FILENAME-VAR: " + filename);
 				alert("BEFORE LANG-OS -> " + currentOS);
 				if (lang === "es") {
 					idLang = 1;
 				}
+				var project_name = data["project-name"];
 				if (currentOS == "Windows") {
-					filename = data["latest-release"]["exe"]["filename"].format(repo.toLowerCase(), version);
+					var project_name_lower = repo.toLowerCase();
+					filename = `${data["latest-release"]["exe"]["filename"]}`;
 					filesize = data["latest-release"]["exe"]["filesize"];
-					urlDownload = data["latest-release"]["exe"]["url"].format(developer, repo, version, filename);
+					urlDownload = `${data["latest-release"]["exe"]["url"]}`;
 				} else {
-					filename = data["latest-release"]["zipball"]["filename"].format(repo, version);
+					filename = `${data["latest-release"]["zipball"]["filename"]}`;
 					alert("FILENAME: " + filename);
 					filesize = data["latest-release"]["zipball"]["filesize"];
-					urlDownload = data["latest-release"]["zipball"]["url"].format(developer, repo, version);
+					urlDownload = `${data["latest-release"]["zipball"]["url"]}`;
 				}
 				alert("BEFORE JQUERY");
 				$("a.button-download").attr("href", urlDownload);
-				$("a.button-download").html(data["text"]["labels-spec"]["download"].format(repo, version));
+				$("a.button-download").html(`${data["text"]["labels-spec"]["download"]}`);
 				$(".body-spec p#file-name").html("<span class='bold-text'>"+ data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
 				$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + data["text"]["labels-spec"]["filesize"][idLang] + ":</span> " + filesize);
 				$(".body-spec p#platform").html("<span class='bold-text'>" + data["text"]["labels-spec"]["platform"][idLang] + ":</span> " + currentOS);
