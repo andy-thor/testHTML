@@ -41,18 +41,31 @@ function startAjax() {
 				var project_name = data["project-name"];
 				if (currentOS == "Windows") {
 					var project_name_lower = repo.toLowerCase();
-					filename = `${data["latest-release"]["exe"]["filename"]}`;
+					filename = data["latest-release"]["exe"]["filename"]
+							   .replace("{project-name}", repo.toLowerCase())
+							   .replace("{version}", version);
 					filesize = data["latest-release"]["exe"]["filesize"];
-					urlDownload = `${data["latest-release"]["exe"]["url"]}`;
+					urlDownload = data["latest-release"]["exe"]["url"]
+								  .replace("{developer}", developer)
+								  .replace("{project-name}", repo)
+								  .replace("{version}", version)
+								  .replace("{filename}", filename);
 				} else {
-					filename = `${data["latest-release"]["zipball"]["filename"]}`;
+					filename = data["latest-release"]["zipball"]["filename"]
+							   .replace("{project-name}", repo)
+							   .replace("{version}", version);
 					alert("FILENAME: " + filename);
 					filesize = data["latest-release"]["zipball"]["filesize"];
-					urlDownload = `${data["latest-release"]["zipball"]["url"]}`;
+					urlDownload = data["latest-release"]["zipball"]["url"]
+								  .replace("{developer}", developer)
+								  .replace("{project-name}", repo)
+								  .replace("{version}", version);
 				}
 				alert("BEFORE JQUERY");
 				$("a.button-download").attr("href", urlDownload);
-				$("a.button-download").html(`${data["text"]["labels-spec"]["download"]}`);
+				$("a.button-download").html(data["text"]["labels-spec"]["download"]
+											.replace("{project-name}", repo)
+											.replace("{version}", version));
 				$(".body-spec p#file-name").html("<span class='bold-text'>"+ data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
 				$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + data["text"]["labels-spec"]["filesize"][idLang] + ":</span> " + filesize);
 				$(".body-spec p#platform").html("<span class='bold-text'>" + data["text"]["labels-spec"]["platform"][idLang] + ":</span> " + currentOS);

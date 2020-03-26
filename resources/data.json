@@ -4,24 +4,24 @@
 	"version": "0.3.1",
 	"latest-release": {
 		"exe": {
-			"filename": "${project_name_lower}-${version}.exe",
+			"filename": "{project-name}-{version}.exe",
 			"filesize": "1.8 MB",
-			"url": "https://github.com/${developer}/${project_name}/releases/download/${version}/${filename}"
+			"url": "https://github.com/{developer}/{project-name}/releases/download/{version}/{filename}"
 		},
 		"zipball": {
-			"filename": "${project_name}-${project_name}.zip",
+			"filename": "{project-name}-{version}.zip",
 			"filesize": "482 KB",
-			"url": "https://codeload.github.com/${developer}/${project_name}/zip/v${version}"
+			"url": "https://codeload.github.com/{developer}/{project-name}/zip/v{version}"
 		},
 		"tarball": {
-			"filename": "${project_name}-${version}.tar.gz",
+			"filename": "{project-name}-{version}.tar.gz",
 			"filesize": "428 KB",
-			"url": "https://github.com/${developer}/${project_name}/archive/v${version}.tar.gz"
+			"url": "https://github.com/{developer}/{project-name}/archive/v{version}.tar.gz"
 		},
 		"src": {
-			"filename": "${project_name}-master.zip",
+			"filename": "{project-name}-master.zip",
 			"filesize": "484 KB",
-			"url": "https://codeload.github.com/${developer}/${project_name}/zip/master"
+			"url": "https://codeload.github.com/{developer}/{project-name}/zip/master"
 		}
 	},
 	"text": {
@@ -39,8 +39,8 @@
 				"Plataforma soportada"
 			],
 			"download": [
-				"Download ${project-name} V${version}",
-				"Descargar ${project-name} V${version}"
+				"Download {project-name} V{version}",
+				"Descargar {project-name} V{version}"
 			]
 		}
 	}
