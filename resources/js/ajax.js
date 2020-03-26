@@ -34,7 +34,7 @@ function loadJSON(path) {
 
 function loadSpecDownload() {
 	var xhr = new XMLHttpRequest();
-	
+	xhr.open("GET", "../resources/data.json", true);
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState === 4) {
 			if(xhr.status === 200) {
@@ -97,7 +97,6 @@ function loadSpecDownload() {
 			console.log("Error loading file");
 		}
 	};
-	xhr.open("GET", "../resources/data.json");
 	xhr.send();
 }
 
