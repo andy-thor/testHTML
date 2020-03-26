@@ -18,6 +18,7 @@ function modDownloadSection() {
 function startAjax() {
 	var objXMLHttpRequest = new XMLHttpRequest();
 	objXMLHttpRequest.onreadystatechange = function() {
+		alert("INSIDE");
 		if(objXMLHttpRequest.readyState === 4) {
 			if(objXMLHttpRequest.status === 200) {
 				var data = JSON.parse(this.responseText);
