@@ -21,7 +21,6 @@ function startAjax() {
 	objXMLHttpRequest.onreadystatechange = function() {
 		if(objXMLHttpRequest.readyState === 4) {
 			if(objXMLHttpRequest.status === 200) {
-				alert("and objXMLHttpRequest.status === 200");
 				var data = JSON.parse(this.responseText);
 				var repo = data["project-name"],
 					developer = data["developer"],
@@ -33,7 +32,7 @@ function startAjax() {
 				var filename = "";
 				var filesize = "";
 				var urlDownload = "";
-				alert(JSON.stringify(data));
+				console.log(data);
 				if (lang === "es") {
 					idLang = 1;
 				}
@@ -60,21 +59,16 @@ function startAjax() {
 								  .replace("{version}", version);
 				}
 				
-				var textDownload = data["text"]["labels-spec"]["download"][idLang];
-				alert("TEXTDOWNLOAD " + textDownload);
-				textDownload = textDownload.replace("{project-name}", repo).replace("{version}", version);
-				var test1 = data["text"]["labels-spec"]["filename"][idLang];
-				var test2 = data["text"]["labels-spec"]["filesize"][idLang];
-
-				alert(textDownload + "\n" + urlDownload + "\n" + test2 + "\n" + test1 );
+				var textDownload = data["text"]["labels-spec"]["download"][idLang]
+								   .replace("{project-name}", repo)
+								   .replace("{version}", version);
 				$("a.button-download").attr("href", urlDownload);
 				$("a.button-download").html(textDownload);
 				$(".body-spec p#file-name").html("<span class='bold-text'>" + data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
 				$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + data["text"]["labels-spec"]["filesize"][idLang] + ":</span> " + filesize);
 				$(".body-spec p#platform").html("<span class='bold-text'>" + data["text"]["labels-spec"]["platform"][idLang] + ":</span> " + currentOS);
-				alert(data);
 			} else {
-				alert('Error Code: ' + objXMLHttpRequest.status);
+				console.log('Error Code: ' + objXMLHttpRequest.status);
 			}
 		}
 	}
