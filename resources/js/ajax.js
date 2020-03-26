@@ -38,7 +38,8 @@ function loadSpecDownload() {
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState === 4) {
 			if(xhr.status === 200) {
-				return JSON.parse(this.responseText);
+				alert("SUCCESS");
+				console.log(JSON.parse(this.responseText));
 			} else {
 				console.log('Error Code: ' + xhr.status);
 				return null;
