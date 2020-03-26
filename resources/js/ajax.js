@@ -34,7 +34,7 @@ function loadJSON(path) {
 
 function loadSpecDownload() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "https://reqres.in/api/products/3", true);
+	xhr.open("GET", "../data.json", true);
 	xhr.onload = function(){
 		var data = JSON.parse(this.responseText);
 		if (data) {
