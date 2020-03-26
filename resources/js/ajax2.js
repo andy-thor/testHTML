@@ -34,8 +34,12 @@ function startAjax() {
 				var filename = "";
 				var filesize = "";
 				var urlDownload = "";
-				alert("BEFORE LANG");
-				if (lang == "es") idLang = 1;
+				filename = data["latest-release"]["zipball"]["filename"].format(repo, version);
+				alert("FILENAME-VAR: " + filename);
+				alert("BEFORE LANG-OS -> " + currentOS);
+				if (lang === "es") {
+					idLang = 1;
+				}
 				if (currentOS == "Windows") {
 					filename = data["latest-release"]["exe"]["filename"].format(repo.toLowerCase(), version);
 					filesize = data["latest-release"]["exe"]["filesize"];
