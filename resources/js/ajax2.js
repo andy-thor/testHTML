@@ -66,7 +66,7 @@ function startAjax() {
 				var test1 = data["text"]["labels-spec"]["filename"][idLang];
 				var test2 = data["text"]["labels-spec"]["filesize"][idLang];
 
-				alert(textDownload + "\n" + urlDownload + "\n" + data2 + "\n" + test1 );
+				alert(textDownload + "\n" + urlDownload + "\n" + test2 + "\n" + test1 );
 				$("a.button-download").attr("href", urlDownload);
 				$("a.button-download").html(textDownload);
 				$(".body-spec p#file-name").html("<span class='bold-text'>" + data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
