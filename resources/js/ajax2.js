@@ -35,6 +35,7 @@ function startAjax() {
 				var filesize = "";
 				var urlDownload = "";
 				alert("BEFORE LANG-OS -> " + currentOS);
+				alert(data);
 				if (lang === "es") {
 					idLang = 1;
 				}
@@ -62,10 +63,12 @@ function startAjax() {
 								  .replace("{version}", version);
 				}
 				alert("BEFORE JQUERY");
+				let textDownload = data["text"]["labels-spec"]["download"]
+								   .replace("{project-name}", repo)
+								   .replace("{version}", version);
 				$("a.button-download").attr("href", urlDownload);
-				$("a.button-download").html(data["text"]["labels-spec"]["download"]
-											.replace("{project-name}", repo)
-											.replace("{version}", version));
+				alert(textDownload);
+				$("a.button-download").html(textDownload);
 				$(".body-spec p#file-name").html("<span class='bold-text'>"+ data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
 				$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + data["text"]["labels-spec"]["filesize"][idLang] + ":</span> " + filesize);
 				$(".body-spec p#platform").html("<span class='bold-text'>" + data["text"]["labels-spec"]["platform"][idLang] + ":</span> " + currentOS);
