@@ -36,17 +36,7 @@ function loadSpecDownload() {
 	var xhr = new XMLHttpRequest();
 	xhr.open("GET", "../resources/data.json", true);
 	xhr.onreadystatechange = function(){
-		if(xhr.readyState === 4) {
-			if(xhr.status === 200) {
-				alert("SUCCESS");
-				console.log(JSON.parse(this.responseText));
-			} else {
-				console.log('Error Code: ' + xhr.status);
-				return null;
-			}
-		}
 		var data = JSON.parse(this.responseText);
-		alert("DATA: "+ JSON.stringify(data));
 		if (data) {
 			var repo = data["project-name"],
 				developer = data["developer"],
@@ -99,13 +89,3 @@ function loadSpecDownload() {
 	};
 	xhr.send();
 }
-
-
-/*
-
-var objXMLHttpRequest = new XMLHttpRequest();
-	objXMLHttpRequest.onreadystatechange = function() {
-		if(objXMLHttpRequest.readyState === 4) {
-			if(objXMLHttpRequest.status === 200) {
-
-*/
