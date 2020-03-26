@@ -83,8 +83,18 @@
 						This software is developed in Python and GTK and can be used in Windows, Linux or Mac.
 					</p>
 				</div>
-				<p id="AASSSD"> Phrase </p>
-
+				<section class="section-download download-home">
+					<a class="button-download" href=""> </a>
+					<div class="specifications ">
+						<p class="title-spec">Specifications</p>
+						<div class="body-spec">
+							<p id="file-name"><span class="bold-text"> </span> </p>
+							<p id="file-size"><span class="bold-text size-bytes"> </span> </p>
+							<p id="platform"><span class="bold-text"> </span>  </p>
+						</div>
+					</div>
+				</section>
+				<!--
 				<section class="section-download download-home">
 					<a id="btn-download" class="button-download" href=""> </a>
 					<div class="specifications ">
@@ -96,6 +106,7 @@
 						</div>
 					</div>
 				</section>
+				-->
 			</div>
 		</div>
 		<div id="content-report">
@@ -104,28 +115,8 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		//console.log("START -> ANTES DE LLAMAR FUNCION");
-		//document.addEventListener('DOMContentLoaded', loadSpecDownload());
-    	//console.log("DESPUÉS DE LLAMAR FUNCION");
-    </script>
-    <!--
-	<script>
-		var objXMLHttpRequest = new XMLHttpRequest();
-		objXMLHttpRequest.onreadystatechange = function() {
-		  if(objXMLHttpRequest.readyState === 4) {
-			if(objXMLHttpRequest.status === 200) {
-				  alert(objXMLHttpRequest.responseText);
-			} else {
-				  alert('Error Code: ' +  objXMLHttpRequest.status);
-				  alert('Error Message: ' + objXMLHttpRequest.statusText);
-			}
-		  }
-		}
-		objXMLHttpRequest.open('GET', '../resources/data.json');
-		objXMLHttpRequest.send();
-	</script>
-	-->
-	<!--#include virtual="footer.htm"-->
+	<footer>
+		<p id="owner"></p>
+	</footer>
 </body>
 </html>
