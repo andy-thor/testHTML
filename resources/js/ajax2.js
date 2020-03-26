@@ -31,9 +31,9 @@ function startAjax() {
 					idLang = 0,
 					currentOS = getOS();
 
-				var filename = null;
-				var filesize = null;
-				var urlDownload = null;
+				var filename = "";
+				var filesize = "";
+				var urlDownload = "";
 				alert("BEFORE LANG");
 				if (lang == "es") idLang = 1;
 				if (currentOS == "Windows") {
