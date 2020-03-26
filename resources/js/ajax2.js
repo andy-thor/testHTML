@@ -18,9 +18,11 @@ function modDownloadSection() {
 function startAjax() {
 	var objXMLHttpRequest = new XMLHttpRequest();
 	objXMLHttpRequest.onreadystatechange = function() {
-		alert("INSIDE");
+
 		if(objXMLHttpRequest.readyState === 4) {
+			alert("objXMLHttpRequest.readyState ===  4");
 			if(objXMLHttpRequest.status === 200) {
+				alert("and objXMLHttpRequest.status === 200");
 				var data = JSON.parse(this.responseText);
 				var repo = data["project-name"],
 					developer = data["developer"],
@@ -32,7 +34,7 @@ function startAjax() {
 				var filename = null;
 				var filesize = null;
 				var urlDownload = null;
-
+				alert("BEFORE LANG");
 				if (lang == "es") idLang = 1;
 				if (currentOS == "Windows") {
 					filename = data["latest-release"]["exe"]["filename"].format(repo.toLowerCase(), version);
@@ -43,7 +45,7 @@ function startAjax() {
 					filesize = data["latest-release"]["zipball"]["filesize"];
 					urlDownload = data["latest-release"]["zipball"]["url"].format(developer, repo, version);
 				}
-
+				alert("BEFORE JQUERY");
 				$("a.button-download").attr("href", urlDownload);
 				$("a.button-download").html(data["text"]["labels-spec"]["download"].format(repo, version));
 				$(".body-spec p#file-name").html("<span class='bold-text'>"+ data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
