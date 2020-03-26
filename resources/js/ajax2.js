@@ -50,50 +50,11 @@ function startAjax() {
 				$(".body-spec p#platform").html("<span class='bold-text'>" + data["text"]["labels-spec"]["platform"][idLang] + ":</span> " + currentOS);
 				alert(data);
 			} else {
-				// alert('Error Code: ' + objXMLHttpRequest.status);
+				alert('Error Code: ' + objXMLHttpRequest.status);
 			}
 		}
 	}
 
 	objXMLHttpRequest.open('GET', '../resources/data.json');
 	objXMLHttpRequest.send();
-
-
-
-
-
-
-
-
-
-
-	var objDownSpec = new Object();
-
-	if (currentOS === "Windows") {
-		objDownSpec.fileName = "stickman-0.3.1.exe";
-		objDownSpec.fileSize = "1.9 MB";
-		objDownSpec.urlDownload = "https://github.com/Andy-thor/StickMan/releases/download/v0.3.1/stickman-0.3.1.exe";
-	} else {
-		objDownSpec.fileName = "StickMan-master.zip";
-		objDownSpec.fileSize = "483 kB";
-		objDownSpec.urlDownload = "https://codeload.github.com/Andy-thor/StickMan/zip/master";
-	}
-	var objDownLabel = new Object();
-	if (lang == "es") {
-		objDownLabel.name = "Nombre de archivo";
-		objDownLabel.size = "Tamaño de archivo";
-		objDownLabel.textDownload = "Descargar StickMan V" + latestVersion;
-		objDownLabel.platform = "Plataforma soportada";
-	} else {
-		objDownLabel.name = "Filename";
-		objDownLabel.size = "File size";
-		objDownLabel.platform = "Supported platform";
-		objDownLabel.textDownload = "Download StickMan V" + latestVersion;
-	}
-
-	$("a.button-download").attr("href", objDownSpec.urlDownload);
-	$("a.button-download").html(objDownLabel.textDownload);
-	$(".body-spec p#file-name").html("<span class='bold-text'>"+ objDownLabel.name + ":</span> " + objDownSpec.fileName);
-	$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + objDownLabel.size + ":</span> " + objDownSpec.fileSize);
-	$(".body-spec p#platform").html("<span class='bold-text'>" + objDownLabel.platform + ":</span> " + currentOS);
 }
