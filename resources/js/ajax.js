@@ -45,7 +45,7 @@ function loadSpecDownload() {
 				return null;
 			}
 		}
-		var data = JSON.parse(xhr.responseText);
+		var data = JSON.parse(this.responseText);
 		alert("DATA: "+ JSON.stringify(data));
 		if (data) {
 			var repo = data["project-name"],
