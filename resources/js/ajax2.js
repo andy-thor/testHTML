@@ -62,8 +62,7 @@ function startAjax() {
 				
 				var textDownload = data["text"]["labels-spec"]["download"];
 				alert("TEXTDOWNLOAD " + textDownload);
-				textDownload = textDownload.replace("{project-name}", repo)
-							   .replace("{version}", version);
+				textDownload = String(textDownload).replace("{project-name}", repo).replace("{version}", version);
 				var test1 = data["text"]["labels-spec"]["filename"][idLang];
 				var test2 = data["text"]["labels-spec"]["filesize"][idLang];
 
