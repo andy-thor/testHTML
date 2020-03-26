@@ -20,9 +20,7 @@ function startAjax() {
 	objXMLHttpRequest.onreadystatechange = function() {
 
 		if(objXMLHttpRequest.readyState === 4) {
-			alert("objXMLHttpRequest.readyState ===  4");
 			if(objXMLHttpRequest.status === 200) {
-				alert("and objXMLHttpRequest.status === 200");
 				var data = JSON.parse(this.responseText);
 				var repo = data["project-name"],
 					developer = data["developer"],
@@ -66,10 +64,14 @@ function startAjax() {
 				let textDownload = data["text"]["labels-spec"]["download"]
 								   .replace("{project-name}", repo)
 								   .replace("{version}", version);
+				alert(textDownload + "\n" +
+					  urlDownload + "\n" +
+					  data["text"]["labels-spec"]["filename"][idLang] + "\n" +
+					  data["text"]["labels-spec"]["filesize"][idLang] + "\n" +
+					 );
 				$("a.button-download").attr("href", urlDownload);
-				alert(textDownload);
 				$("a.button-download").html(textDownload);
-				$(".body-spec p#file-name").html("<span class='bold-text'>"+ data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
+				$(".body-spec p#file-name").html("<span class='bold-text'>" + data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
 				$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + data["text"]["labels-spec"]["filesize"][idLang] + ":</span> " + filesize);
 				$(".body-spec p#platform").html("<span class='bold-text'>" + data["text"]["labels-spec"]["platform"][idLang] + ":</span> " + currentOS);
 				alert(data);
