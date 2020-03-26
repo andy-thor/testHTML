@@ -15,12 +15,11 @@ function modDownloadSection() {
 	}
 }
 */
-document.addEventListener('DOMContentLoaded', startAjax());
 
 function startAjax() {
 	var objXMLHttpRequest = new XMLHttpRequest();
 	objXMLHttpRequest.onreadystatechange = function() {
-
+		alert("INICIANDO");
 		if(objXMLHttpRequest.readyState === 4) {
 			alert("objXMLHttpRequest.readyState ===  4");
 			if(objXMLHttpRequest.status === 200) {
@@ -57,7 +56,6 @@ function startAjax() {
 					filename = data["latest-release"]["zipball"]["filename"]
 							   .replace("{project-name}", repo)
 							   .replace("{version}", version);
-					alert("FILENAME: " + filename);
 					filesize = data["latest-release"]["zipball"]["filesize"];
 					urlDownload = data["latest-release"]["zipball"]["url"]
 								  .replace("{developer}", developer)
@@ -68,8 +66,8 @@ function startAjax() {
 				let textDownload = data["text"]["labels-spec"]["download"]
 								   .replace("{project-name}", repo)
 								   .replace("{version}", version);
-				let test1 = data["text"]["labels-spec"]["filename"][idLang];
-				let test2 = data["text"]["labels-spec"]["filesize"][idLang];
+				var test1 = data["text"]["labels-spec"]["filename"][idLang];
+				var test2 = data["text"]["labels-spec"]["filesize"][idLang];
 
 				alert(textDownload + "\n" +
 					  urlDownload + "\n" +
