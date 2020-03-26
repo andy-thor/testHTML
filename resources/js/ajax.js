@@ -34,7 +34,7 @@ function loadJSON(path) {
 
 function loadSpecDownload() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "../data.json");
+	
 	xhr.onreadystatechange = function(){
 		if(xhr.readyState === 4) {
 			if(xhr.status === 200) {
@@ -97,5 +97,16 @@ function loadSpecDownload() {
 			console.log("Error loading file");
 		}
 	};
+	xhr.open("GET", "../resources/data.json");
 	xhr.send();
 }
+
+
+/*
+
+var objXMLHttpRequest = new XMLHttpRequest();
+	objXMLHttpRequest.onreadystatechange = function() {
+		if(objXMLHttpRequest.readyState === 4) {
+			if(objXMLHttpRequest.status === 200) {
+
+*/
