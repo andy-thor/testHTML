@@ -14,22 +14,15 @@ window.onload = function() {
 		xmlhttp.onreadystatechange = function() {
 			/* if we are on a local protocol, and we have response text, we'll assume
  *  				things were sucessful */
- 			if(this.readyState === 4 && this.status === 200) {
- 				alert("TEXTOOOO:" + this.responseText);
- 			}
-
 			if (xmlhttp.readyState == 4) {
 				status = xmlhttp.status;
-				alert("STATUS: " + status);
 			}
 			alert("RESPONSE->: " + xmlhttp.responseText);
 			if (localTest.test(location.href) && xmlhttp.responseText) {
 				status = 200;
-				alert("URL = " + url);
 			}
 			if (xmlhttp.readyState == 4 && status == 200) {
 				el.outerHTML = xmlhttp.responseText;
-				alert("ESCRITO: " + url);
 			}
 		}
 
