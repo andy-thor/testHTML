@@ -51,13 +51,13 @@ function includeHTML() {
 					if (elmnt.id === "head") {
 						var content = this.responseText;
 						let extra_head = document.getElementById("extra-head");
-						if (extra_head !== null) {
+						if (extra_head) {
 							content += "<link rel='stylesheet' href='../resources/css/gallery.css'>" + 
 									   "<script src='../resources/js/gallery.js'></script>";
+							extra_head.outerHTML = "";
 						}
 						$('head').html(content);
 						elmnt.outerHTML = "";
-						extra_head.outerHTML = "";
 					} else {
 						elmnt.outerHTML = this.responseText;
 					}
