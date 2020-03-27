@@ -38,7 +38,6 @@ function loadSpecDownload() {
 	xhr.onreadystatechange = function() {
 		if(this.readyState === 4 && this.status === 200) {
 			var data = JSON.parse(this.responseText);
-			alert("DATA" + JSON.stringify(data))
 			if (data) {
 				var repo = data["project-name"],
 					developer = data["developer"],
