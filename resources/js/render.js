@@ -49,12 +49,8 @@ function includeHTML() {
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					if (elmnt.id === "head") {
-						//$('head').html(this.responseText);
-						// select the element that will be replaced
-						var el = document.querySelector('head');
-						var newEl = document.createElement('head');
-						newEl.innerHTML = this.responseText;
-						el.parentNode.replaceChild(newEl, el);
+						$('head').html(this.responseText);
+						elmnt.outerHTML = "";
 					} else {
 						elmnt.outerHTML = this.responseText;
 					}
