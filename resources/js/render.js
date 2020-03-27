@@ -36,7 +36,7 @@ function funcionRender() {
 }
 
 function includeHTML() {
-  var z, i, elmnt, file, xhttp;
+  var z, i, e, elmnt, file, xhttp;
 	/*loop through a collection of all HTML elements:*/
 	z = document.getElementsByTagName("*");
 	for (i = 0; i < z.length; i++) {
@@ -48,14 +48,17 @@ function includeHTML() {
 			/*make an HTTP request using the attribute value as the file name:*/
 			xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
-				if (this.readyState == 4) {
-					//if (this.status == 200) {elmnt.innerHTML = this.responseText;}
-					if (this.status == 200) {elmnt.outerHTML = this.responseText;}
-					if (this.status == 404) {elmnt.outerHTML = "Page not found.";}
-					/*remove the attribute, and call this function once more:*/
-					elmnt.removeAttribute("w3-include-html");
-					includeHTML();
-				}
+				if (this.readyState == 4 && this.status == 200) {
+					if (elmnt.id === "head") {
+						e = document.getElementsByTagName("head");
+						e.innerHTML = this.responseText;
+					} else {
+						elmnt.outerHTML = this.responseText;
+					}
+				} else if (this.status == 404) {elmnt.outerHTML = "Page not found.";}
+				/*remove the attribute, and call this function once more:*/
+				elmnt.removeAttribute("w3-include-html");
+				includeHTML();
 			}
 			xhttp.open("GET", file, true);
 			xhttp.send();
