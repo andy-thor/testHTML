@@ -19,38 +19,64 @@ function generateTextCopyright() {
 	$("#owner").html("Copyright &copy; " + strTimeLapse + "<br>" + developerFullName);
 }
 
-function generateButtonDownload() {
-	var currentOS = getOS();
-	var objDownSpec = new Object();
-	var lang = getLanguage();
+function loadSpecDownload() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "../resources/data.json", true);
+	xhr.onreadystatechange = function() {
+		if(this.readyState === 4 && this.status === 200) {
+			var data = JSON.parse(this.responseText);
+			if (data) {
+				var repo = data["project-name"],
+					developer = data["developer"],
+					version = data["version"],
+					lang = getLanguage(),
+					idLang = 0,
+					currentOS = getOS();
 
-	if (currentOS === "Windows") {
-		objDownSpec.fileName = "stickman-0.3.1.exe";
-		objDownSpec.fileSize = "1.9 MB";
-		objDownSpec.urlDownload = "https://github.com/Andy-thor/StickMan/releases/download/v0.3.1/stickman-0.3.1.exe";
-	} else {
-		objDownSpec.fileName = "StickMan-master.zip";
-		objDownSpec.fileSize = "483 kB";
-		objDownSpec.urlDownload = "https://codeload.github.com/Andy-thor/StickMan/zip/master";
-	}
-	var objDownLabel = new Object();
-	if (lang == "es") {
-		objDownLabel.name = "Nombre de archivo";
-		objDownLabel.size = "Tamaño de archivo";
-		objDownLabel.textDownload = "Descargar StickMan V" + latestVersion;
-		objDownLabel.platform = "Plataforma soportada";
-	} else {
-		objDownLabel.name = "Filename";
-		objDownLabel.size = "File size";
-		objDownLabel.platform = "Supported platform";
-		objDownLabel.textDownload = "Download StickMan V" + latestVersion;
-	}
-
-	$("a.button-download").attr("href", objDownSpec.urlDownload);
-	$("a.button-download").html(objDownLabel.textDownload);
-	$(".body-spec p#file-name").html("<span class='bold-text'>"+ objDownLabel.name + ":</span> " + objDownSpec.fileName);
-	$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + objDownLabel.size + ":</span> " + objDownSpec.fileSize);
-	$(".body-spec p#platform").html("<span class='bold-text'>" + objDownLabel.platform + ":</span> " + currentOS);
+				var filename = "";
+				var filesize = "";
+				var urlDownload = "";
+				console.log(data);
+				if (lang === "es") {
+					idLang = 1;
+				}
+				var project_name = data["project-name"];
+				if (currentOS == "Windows") {
+					var project_name_lower = repo.toLowerCase();
+					filename = data["latest-release"]["exe"]["filename"]
+							   .replace("{project-name}", repo.toLowerCase())
+							   .replace("{version}", version);
+					filesize = data["latest-release"]["exe"]["filesize"];
+					urlDownload = data["latest-release"]["exe"]["url"]
+								  .replace("{developer}", developer)
+								  .replace("{project-name}", repo)
+								  .replace("{version}", version)
+								  .replace("{filename}", filename);
+				} else {
+					filename = data["latest-release"]["zipball"]["filename"]
+							   .replace("{project-name}", repo)
+							   .replace("{version}", version);
+					filesize = data["latest-release"]["zipball"]["filesize"];
+					urlDownload = data["latest-release"]["zipball"]["url"]
+								  .replace("{developer}", developer)
+								  .replace("{project-name}", repo)
+								  .replace("{version}", version);
+				}
+				
+				var textDownload = data["text"]["labels-spec"]["download"][idLang]
+								   .replace("{project-name}", repo)
+								   .replace("{version}", version);
+				$("a.button-download").attr("href", urlDownload);
+				$("a.button-download").html(textDownload);
+				$(".body-spec p#file-name").html("<span class='bold-text'>" + data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
+				$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + data["text"]["labels-spec"]["filesize"][idLang] + ":</span> " + filesize);
+				$(".body-spec p#platform").html("<span class='bold-text'>" + data["text"]["labels-spec"]["platform"][idLang] + ":</span> " + currentOS);
+			} else {
+				console.log("Error loading file");
+			}
+		}
+	};
+	xhr.send();
 }
 
 function collapsibleButton() {
