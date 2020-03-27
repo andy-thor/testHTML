@@ -49,8 +49,15 @@ function includeHTML() {
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					if (elmnt.id === "head") {
-						$('head').html(this.responseText);
+						var content = this.responseText;
+						let extra_head = document.getElementById("extra-head");
+						if (extra_head) {
+							content += "<link rel='stylesheet' href='../resources/css/gallery.css'>" + 
+									   "<script src='../resources/js/gallery.js'></script>";
+						}
+						$('head').html(content);
 						elmnt.outerHTML = "";
+						extra_head.outerHTML = "";
 					} else {
 						elmnt.outerHTML = this.responseText;
 					}
