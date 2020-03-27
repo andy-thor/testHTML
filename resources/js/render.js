@@ -36,7 +36,7 @@ function funcionRender() {
 }
 
 function includeHTML() {
-  var z, i, e, elmnt, file, xhttp;
+	var z, i, elmnt, file, xhttp;
 	/*loop through a collection of all HTML elements:*/
 	z = document.getElementsByTagName("*");
 	for (i = 0; i < z.length; i++) {
@@ -50,8 +50,7 @@ function includeHTML() {
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					if (elmnt.id === "head") {
-						e = document.getElementsByTagName("head");
-						e.innerHTML = this.responseText;
+						$('head').html(this.responseText);
 					} else {
 						elmnt.outerHTML = this.responseText;
 					}
