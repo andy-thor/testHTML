@@ -42,7 +42,7 @@ function includeHTML() {
 	for (i = 0; i < z.length; i++) {
 		elmnt = z[i];
 		/*search for elements with a certain atrribute:*/
-		alert("EL ID ES: " + elmnt.querySelector("#id"));
+		alert("EL ID ES: " + elmnt.getAttribute("#id"));
 		file = elmnt.getAttribute("w3-include-html");
 		if (file) {
 			/*make an HTTP request using the attribute value as the file name:*/
