@@ -36,10 +36,7 @@ function loadSpecDownload() {
 				var filename = "";
 				var filesize = "";
 				var urlDownload = "";
-				console.log(data);
-				if (lang === "es") {
-					idLang = 1;
-				}
+				if (lang === "es") { idLang = 1; }
 				var project_name = data["project-name"];
 				if (currentOS == "Windows") {
 					var project_name_lower = repo.toLowerCase();
@@ -71,6 +68,39 @@ function loadSpecDownload() {
 				$(".body-spec p#file-name").html("<span class='bold-text'>" + data["text"]["labels-spec"]["filename"][idLang] + ":</span> " + filename);
 				$(".body-spec p#file-size").html("<span class='bold-text size-bytes'>" + data["text"]["labels-spec"]["filesize"][idLang] + ":</span> " + filesize);
 				$(".body-spec p#platform").html("<span class='bold-text'>" + data["text"]["labels-spec"]["platform"][idLang] + ":</span> " + currentOS);
+			} else {
+				console.log("Error loading file");
+			}
+		}
+	};
+	xhr.send();
+}
+
+function loadDescText() {
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", "../resources/data.json", true);
+	xhr.onreadystatechange = function() {
+		if(this.readyState === 4 && this.status === 200) {
+			var data = JSON.parse(this.responseText);
+			if (data) {
+				var lang = getLanguage(),
+					idLang = 0;
+				if (lang === "es") { idLang = 1; }
+				var project_name = data["project-name"],
+					low_description = data["text"]["desc-text"]["low-description"][idLang],
+					text_support = data["text"]["desc-text"]["text-support"][idLang],
+					lnk_support = data["text"]["desc-text"]["lnk-support"][idLang],
+					lang_label = data["text"]["language"]["lang-label"][idLang],
+					lang_en = data["text"]["language"]["lang-en"][idLang],
+					lang_es = data["text"]["language"]["lang-es"][idLang];
+
+				$("h1").html(project_name);
+				$("a#lang-label").html(lang_label);
+				$("a#langButtonEn").html(lang_en);
+				$("a#langButtonEs").html(lang_es);
+				$("div.low-description").html(low_description);
+				$("p.text-support").html(text_support);
+				$("a#lnk-support").html(lnk_support);
 			} else {
 				console.log("Error loading file");
 			}

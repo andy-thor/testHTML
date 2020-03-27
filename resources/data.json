@@ -42,6 +42,34 @@
 				"Download {project-name} V{version}",
 				"Descargar {project-name} V{version}"
 			]
+		},
+		"desc-text": {
+			"low-description": [
+				"A toon running on your desktop!",
+				"¡Una caricatura corriendo por tu escritorio!"
+			],
+			"text-support": [
+				"Your donation helps in the development and maintenance of this project. Thanks you!",
+				"Tu donación ayuda en el desarrollo y mantenimiento de este proyecto. ¡Gracias!"
+			],
+			"lnk-support": [
+				"Support the project",
+				"Ayuda al proyecto"
+			]
+		},
+		"language": {
+			"lang-label": [
+				"Language",
+				"Lenguaje"
+			],
+			"lang-en": [
+				"English",
+				"Inglés"
+			],
+			"lang-es": [
+				"Spanish",
+				"Español"
+			]
 		}
 	}
 }
