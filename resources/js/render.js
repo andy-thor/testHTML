@@ -36,7 +36,7 @@ function funcionRender() {
 }
 
 function includeHTML() {
-	var z, i, elmnt, file, xhttp;
+	var z, i, e, elmnt, file, xhttp;
 	/*loop through a collection of all HTML elements:*/
 	z = document.getElementsByTagName("*");
 	for (i = 0; i < z.length; i++) {
@@ -44,13 +44,15 @@ function includeHTML() {
 		/*search for elements with a certain atrribute:*/
 		file = elmnt.getAttribute("w3-include-html");
 		if (file) {
-			alert("ID DIV: " + elmnt.id);
 			/*make an HTTP request using the attribute value as the file name:*/
 			xhttp = new XMLHttpRequest();
 			xhttp.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					if (elmnt.id === "head") {
-						$('head').html(this.responseText);
+						//$('head').html(this.responseText);
+						var head = document.getElementsByTagName("head");
+						head.outerHTML = this.responseText;
+						elmnt.outerHTML = "";
 					} else {
 						elmnt.outerHTML = this.responseText;
 					}
@@ -66,3 +68,18 @@ function includeHTML() {
 		}
 	}
 };
+
+/*
+var str = '<a href="http://www.com">item to replace</a>'; //it can be anything
+var Obj = document.getElementById('TargetObject'); //any element to be fully replaced
+if(Obj.outerHTML) { //if outerHTML is supported
+    Obj.outerHTML=str; ///it's simple replacement of whole element with contents of str var
+}
+else { //if outerHTML is not supported, there is a weird but crossbrowsered trick
+    var tmpObj=document.createElement("div");
+    tmpObj.innerHTML='<!--THIS DATA SHOULD BE REPLACED-->';
+    ObjParent=Obj.parentNode; //Okey, element should be parented
+    ObjParent.replaceChild(tmpObj,Obj); //here we placing our temporary data instead of our target, so we can find it then and replace it into whatever we want to replace to
+    ObjParent.innerHTML=ObjParent.innerHTML.replace('<div><!--THIS DATA SHOULD BE REPLACED--></div>',str);
+}
+*/
