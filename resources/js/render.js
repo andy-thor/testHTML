@@ -36,7 +36,7 @@ function funcionRender() {
 }
 
 function includeHTML() {
-	var z, i, e, elmnt, file, xhttp;
+	var z, i, elmnt, file, xhttp;
 	/*loop through a collection of all HTML elements:*/
 	z = document.getElementsByTagName("*");
 	for (i = 0; i < z.length; i++) {
@@ -50,9 +50,11 @@ function includeHTML() {
 				if (this.readyState == 4 && this.status == 200) {
 					if (elmnt.id === "head") {
 						//$('head').html(this.responseText);
-						var head = document.getElementsByTagName("head");
-						head.outerHTML = this.responseText;
-						elmnt.outerHTML = "";
+						// select the element that will be replaced
+						var el = document.querySelector('head');
+						var newEl = document.createElement('head');
+						newEl.innerHTML = this.responseText;
+						el.parentNode.replaceChild(newEl, el);
 					} else {
 						elmnt.outerHTML = this.responseText;
 					}
