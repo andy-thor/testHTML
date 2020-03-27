@@ -134,7 +134,7 @@ function configureEffects() {
 function init() {
 	configureEffects();
 	generateTextCopyright();
-	// generateButtonDownload();
+	loadDescText();
 	loadSpecDownload();
 }
 
