@@ -17,7 +17,6 @@ window.onload = function() {
 			if (xmlhttp.readyState == 4) {
 				status = xmlhttp.status;
 			}
-			alert("RESPONSE->: " + xmlhttp.responseText);
 			if (localTest.test(location.href) && xmlhttp.responseText) {
 				status = 200;
 			}
